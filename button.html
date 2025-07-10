@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated Button</title>
+    <link rel="stylesheet" href="button.css"> <!-- Linking CSS -->
+</head>
+<body>
+    <div class="text-box">
+        <a href="cake.html" class="btn btn-white btn-animated">Start the Celebration 🎂</a>
+    </div>
+    <audio id="birthdaySong" autoplay>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+    <div id="surpriseBtnBox" style="display: none; position: fixed; bottom: 30px; width: 100%; text-align: center; z-index: 999;">
+        <a href="arrow-game.html" style="
+            text-decoration: none;
+            font-size: 20px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            cursor: pointer;
+        ">Go to Surprise 🎁</a>
+    </div>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Ensure audio plays if browser blocks autoplay
+    const audio = document.getElementById("birthdaySong");
+    if (audio) {
+      audio.play().catch(() => {
+        // If blocked, show a small play prompt (optional)
+        console.log("Autoplay blocked.");
+      });
+    }
+
+    // Show the button after 15s
+    setTimeout(function () {
+      const btnBox = document.getElementById("surpriseBtnBox");
+      if (btnBox) btnBox.style.display = "block";
+    }, 15000);
+  });
+</script>
+
+</body>
+</html>
